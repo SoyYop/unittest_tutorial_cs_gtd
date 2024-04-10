@@ -32,4 +32,8 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\urbaneats\urbaneats.csproj" />
+  </ItemGroup>
+
 </Project>
