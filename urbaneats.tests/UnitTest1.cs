@@ -46,25 +46,33 @@ public class UnitTest1
     }
 
 
-    [Fact(Skip = "No implementado")]
+    [Fact]
     public void test_LeeArchivo()
     {
         // Preparar
-        //  => var lector = new LectorCompras();
+        var lector = new LectorCompras();
+        lector.LeeArchivo(Path.Combine("testdata", archivo_nombre));
         // Ejecutar
         //  => var suma = lector.suma
         // Validar
         //  => Assert suma=123
 
-        
-        Assert.Fail("No implementado");
+
+        // Assert.Fail("No implementado");
+        Assert.Equal(lector.Registros.Count(), 10000);
     }
 
 
-    [Fact(Skip = "No implementado")]
+    [Fact]
     public void test_CalcularTotal()
     {
-        Assert.Fail("No implementado");
+
+        // Calcular el total de todo lo que se compro.
+        var lector = new LectorCompras();
+        var sumaTotal = 0;
+        lector.LeeArchivo(Path.Combine("testdata", archivo_nombre));
+        sumaTotal = lector.Registros.Sum(x => x.Total);
+        Assert.Equal(sumaTotal, suma_totales);
     }
 
 
